@@ -1,9 +1,16 @@
 # ENV
+/.buildpath
+
 ## vagrant
+/.project
 .vagrant
+/.vscode
 .vagrant.d
+/.settings/
 .php-version
+/composer.lock
 /composer.phar
+/vendor/
 
 # composer
 vendor/
@@ -30,3 +37,4 @@ src/web/*/*/logs/*
 !/log/.gitkeep
 .phpunit.result.cache
 /phpunit.phar
+tests/.phpunit.cache/test-results
