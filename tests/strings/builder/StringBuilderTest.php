@@ -21,22 +21,18 @@ declare(strict_types=1);
 
 namespace fw3\tests\strings\builder;
 
-use PHPUnit\Framework\TestCase;
-use fw3\strings\converter\Convert;
-use fw3\strings\builder\StringBuilder;
-use fw3\strings\builder\modifiers\ModifierTrait;
-use fw3\strings\builder\modifiers\ModifierInterface;
-use fw3\tests\strings\utilitys\convertrs\UrlConvertr;
 use fw3\strings\builder\modifiers\datetime\DateModifier;
-use fw3\strings\builder\traits\converter\ConverterTrait;
+use fw3\strings\builder\modifiers\datetime\StrtotimeModifier;
 use fw3\strings\builder\modifiers\security\EscapeModifier;
 use fw3\strings\builder\modifiers\security\JsExprModifier;
-use fw3\tests\strings\utilitys\modifiers\ZeroToDqModifier;
-use fw3\tests\strings\utilitys\convertrs\DoNothingConvertr;
-use fw3\tests\strings\utilitys\modifiers\DoNothingModifier;
-use fw3\strings\builder\traits\converter\ConverterInterface;
-use fw3\strings\builder\modifiers\datetime\StrtotimeModifier;
 use fw3\strings\builder\modifiers\strings\ToDebugStringModifier;
+use fw3\strings\builder\StringBuilder;
+use fw3\strings\converter\Convert;
+use fw3\tests\strings\utilitys\convertrs\DoNothingConvertr;
+use fw3\tests\strings\utilitys\convertrs\UrlConvertr;
+use fw3\tests\strings\utilitys\modifiers\DoNothingModifier;
+use fw3\tests\strings\utilitys\modifiers\ZeroToDqModifier;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @runTestsInSeparateProcesses
@@ -2103,4 +2099,3 @@ class StringBuilderTest extends TestCase
         parent::tearDown();
     }
 }
-
