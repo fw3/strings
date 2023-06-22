@@ -21,18 +21,22 @@ declare(strict_types=1);
 
 namespace fw3\tests\strings\builder;
 
-use fw3\strings\builder\modifiers\datetime\DateModifier;
-use fw3\strings\builder\modifiers\datetime\StrtotimeModifier;
-use fw3\strings\builder\modifiers\ModifierInterface;
+use PHPUnit\Framework\TestCase;
+use fw3\strings\converter\Convert;
+use fw3\strings\builder\StringBuilder;
 use fw3\strings\builder\modifiers\ModifierTrait;
+use fw3\strings\builder\modifiers\ModifierInterface;
+use fw3\tests\strings\utilitys\convertrs\UrlConvertr;
+use fw3\strings\builder\modifiers\datetime\DateModifier;
+use fw3\strings\builder\traits\converter\ConverterTrait;
 use fw3\strings\builder\modifiers\security\EscapeModifier;
 use fw3\strings\builder\modifiers\security\JsExprModifier;
-use fw3\strings\builder\modifiers\strings\ToDebugStringModifier;
-use fw3\strings\builder\StringBuilder;
+use fw3\tests\strings\utilitys\modifiers\ZeroToDqModifier;
+use fw3\tests\strings\utilitys\convertrs\DoNothingConvertr;
+use fw3\tests\strings\utilitys\modifiers\DoNothingModifier;
 use fw3\strings\builder\traits\converter\ConverterInterface;
-use fw3\strings\builder\traits\converter\ConverterTrait;
-use fw3\strings\converter\Convert;
-use PHPUnit\Framework\TestCase;
+use fw3\strings\builder\modifiers\datetime\StrtotimeModifier;
+use fw3\strings\builder\modifiers\strings\ToDebugStringModifier;
 
 /**
  * @runTestsInSeparateProcesses
@@ -2100,79 +2104,3 @@ class StringBuilderTest extends TestCase
     }
 }
 
-class DoNothingConvertr implements ConverterInterface
-{
-    use ConverterTrait;
-
-    /**
-     * 現在の変数名を元に値を返します。
-     *
-     * @param  string      $name   現在の変数名
-     * @param  string      $search 変数名の元の文字列
-     * @param  array       $values 変数
-     * @return null|string 値
-     */
-    public static function convert(string $name, string $search, array $values): ?string
-    {
-        return null;
-    }
-}
-
-class UrlConvertr implements ConverterInterface
-{
-    use ConverterTrait;
-
-    public const URL_MAP = [
-        'ickx'  => 'https://ickx.jp',
-        'effy'  => 'https://effy.info',
-    ];
-
-    /**
-     * 現在の変数名を元に値を返します。
-     *
-     * @param  string      $name   現在の変数名
-     * @param  string      $search 変数名の元の文字列
-     * @param  array       $values 変数
-     * @return null|string 値
-     */
-    public static function convert(string $name, string $search, array $values): ?string
-    {
-        return static::URL_MAP[$name] ?? $search;
-    }
-}
-
-class DoNothingModifier implements ModifierInterface
-{
-    use ModifierTrait;
-
-    /**
-     * 置き換え値を修飾して返します。
-     *
-     * @param  mixed                       $replace    置き換え値
-     * @param  array                       $parameters パラメータ
-     * @param  array                       $context    コンテキスト
-     * @return 修飾した置き換え値
-     */
-    public static function modify($replace, array $parameters = [], array $context = [])
-    {
-        return $replace;
-    }
-}
-
-class ZeroToDqModifier implements ModifierInterface
-{
-    use ModifierTrait;
-
-    /**
-     * 置き換え値を修飾して返します。
-     *
-     * @param  mixed                       $replace    置き換え値
-     * @param  array                       $parameters パラメータ
-     * @param  array                       $context    コンテキスト
-     * @return 修飾した置き換え値
-     */
-    public static function modify($replace, array $parameters = [], array $context = [])
-    {
-        return \str_replace('0', '"', $replace);
-    }
-}
