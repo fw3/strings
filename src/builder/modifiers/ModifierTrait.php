@@ -1,5 +1,6 @@
 <?php
-/**    _______       _______
+/**
+ *     _______       _______
  *    / ____/ |     / /__  /
  *   / /_   | | /| / / /_ <
  *  / __/   | |/ |/ /___/ /
@@ -10,9 +11,10 @@
  * @category    Flywheel3
  * @package     strings
  * @author      wakaba <wakabadou@gmail.com>
- * @copyright   2020 - Wakabadou (http://www.wakabadou.net/) / Project ICKX (https://ickx.jp/)
- * @license     http://opensource.org/licenses/MIT The MIT License MIT
- * @varsion     0.0.1
+ * @copyright   Copyright (c) @2020  Wakabadou (http://www.wakabadou.net/) / Project ICKX (https://ickx.jp/). All rights reserved.
+ * @license     http://opensource.org/licenses/MIT The MIT License.
+ *              This software is released under the MIT License.
+ * @varsion     1.0.0
  */
 
 declare(strict_types=1);
@@ -24,13 +26,13 @@ namespace fw3\strings\builder\modifiers;
  */
 trait ModifierTrait
 {
-     /**
+    /**
      * 置き換え値を修飾して返します。
      *
-     * @param   mixed   $replace    置き換え値
-     * @param   array   $parameters パラメータ
-     * @param   array   $context    コンテキスト
-     * @return  mixed   修飾した置き換え値
+     * @param  mixed                       $replace    置き換え値
+     * @param  array                       $parameters パラメータ
+     * @param  array                       $context    コンテキスト
+     * @return 修飾した置き換え値
      */
     public function __invoke($replace, array $parameters = [], array $context = [])
     {

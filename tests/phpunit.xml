@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration>
-<phpunit colors="true" verbose="true" bootstrap="../vendor/autoload.php">
-    <testsuites>
-        <testsuite name="Test suite">
-            <!-- tests フォルダ配下のテストファイルをテストする -->
-            <directory>./</directory>
-        </testsuite>
-    </testsuites>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" colors="true" bootstrap="../vendor/autoload.php" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.0/phpunit.xsd" cacheDirectory=".phpunit.cache">
+  <testsuites>
+    <testsuite name="Test suite">
+      <!-- tests フォルダ配下のテストファイルをテストする -->
+      <directory>./</directory>
+    </testsuite>
+  </testsuites>
 </phpunit>
